@@ -86,7 +86,7 @@ def next_example_image_path(model_path):
     """
     base_path, _ = os.path.splitext(model_path)
     i = 0
-    while glob.glob(f"{base_path}.example.{i}.*"):
+    while glob.glob(f"{glob.escape(base_path)}.example.{i}.*"):
         i += 1
     return f"{base_path}.example.{i}"
 
